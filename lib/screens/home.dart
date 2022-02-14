@@ -34,11 +34,14 @@ class HomeScreen extends StatelessWidget {
                 height: 10.0,
               ),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 2.0, horizontal: 5.0),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 2.0,
+                  horizontal: 5.0,
+                ),
                 decoration: BoxDecoration(
-                    color: Colors.amber,
-                    borderRadius: BorderRadius.circular(10.0)),
+                  color: Colors.amber,
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
                 child: TextButton(
                   onPressed: () {},
                   child: const Text(
