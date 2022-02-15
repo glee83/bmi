@@ -1,3 +1,4 @@
+import 'package:bmi_app/routes/route_names.dart';
 import 'package:flutter/material.dart';
 
 class BmiPage extends StatefulWidget {
@@ -14,7 +15,7 @@ class _BmiPageState extends State<BmiPage> {
   final weightController = TextEditingController();
 
   // double calBMI(double height, double weight) {
-  //  double result;
+  var _result;
 
   void calBmi() {
     double height = double.parse(heightController.text) / 100;
@@ -23,10 +24,9 @@ class _BmiPageState extends State<BmiPage> {
     double hSqr = height * height;
     double result = weight / hSqr;
 
-    setState(() {
-      result = result;
-    });
-    print(result);
+    _result = result;
+    setState(() {});
+    print(_result);
   }
 
   @override
@@ -41,21 +41,48 @@ class _BmiPageState extends State<BmiPage> {
               TextField(
                 controller: heightController,
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  labelText: 'height in m',
+                decoration: const InputDecoration(
+                  labelText: 'height in cm',
                 ),
+              ),
+              const SizedBox(
+                height: 20.0,
               ),
               TextField(
                 controller: weightController,
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'weight in kg',
                 ),
               ),
-              TextButton(onPressed: calBmi, child: Text('Cal')),
-              // Text(result == null
-              //     ? "enter value"
-              //     : "${result.toStringAsFixed(2)}")
+              const SizedBox(
+                height: 20.0,
+              ),
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: Colors.teal,
+                    borderRadius: BorderRadius.circular(10.0)),
+                child: TextButton(
+                    onPressed: () {
+                      calBmi();
+                      Navigator.pushNamed(context, RouteName.bmi);
+                    },
+                    child: const Text(
+                      'Cal',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )),
+              ),
+              const SizedBox(
+                height: 50.0,
+              ),
+              Text(_result == null
+                  ? "enter value"
+                  : "${_result.toStringAsFixed(2)}")
             ],
           ),
         ),
