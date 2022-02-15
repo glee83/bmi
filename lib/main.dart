@@ -1,5 +1,5 @@
 import 'package:bmi_app/screens/bmi.dart';
-import 'package:bmi_app/screens/home.dart';
+// import 'package:bmi_app/screens/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -7,8 +7,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
-  
   const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
