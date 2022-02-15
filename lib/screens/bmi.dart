@@ -1,4 +1,5 @@
 import 'package:bmi_app/routes/route_names.dart';
+import 'package:bmi_app/screens/result.dart';
 import 'package:flutter/material.dart';
 
 class BmiPage extends StatefulWidget {
@@ -66,7 +67,11 @@ class _BmiPageState extends State<BmiPage> {
                 child: TextButton(
                     onPressed: () {
                       calBmi();
-                      Navigator.pushNamed(context, RouteName.bmi);
+                      heightController.text = '';
+                      weightController.text = '';
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ResultPage(result: _result),
+                      ));
                     },
                     child: const Text(
                       'Cal',
@@ -80,9 +85,7 @@ class _BmiPageState extends State<BmiPage> {
               const SizedBox(
                 height: 50.0,
               ),
-              Text(_result == null
-                  ? "enter value"
-                  : "${_result.toStringAsFixed(2)}")
+              // Text(_result == null ? " " : "${_result.toStringAsFixed(2)}")
             ],
           ),
         ),
