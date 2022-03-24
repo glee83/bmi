@@ -1,4 +1,4 @@
-import 'package:bmi_app/routes/route_names.dart';
+// import 'package:bmi_app/routes/route_names.dart';
 import 'package:bmi_app/screens/result.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +27,7 @@ class _BmiPageState extends State<BmiPage> {
 
     _result = result;
     setState(() {});
-    print(_result);
+    // print(_result);
   }
 
   @override

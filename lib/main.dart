@@ -1,13 +1,16 @@
+import 'package:bmi_app/routes/route.dart';
+import 'package:bmi_app/routes/route_names.dart';
 import 'package:bmi_app/screens/bmi.dart';
 // import 'package:bmi_app/screens/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp(route: AppRouting()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  AppRouting route;
+  MyApp({Key? key, required this.route}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -18,7 +21,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: BmiPage(),
+      initialRoute: RouteName.home,
+      onGenerateRoute: route.generatRoutes,
     );
   }
 }
